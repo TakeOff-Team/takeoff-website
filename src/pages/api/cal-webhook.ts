@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'node:crypto';
+import ws from 'ws';
 
 export const prerender = false;
 
@@ -24,7 +25,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     const supabase = createClient(
       import.meta.env.SUPABASE_URL,
-      import.meta.env.SUPABASE_SERVICE_ROLE_KEY
+      import.meta.env.SUPABASE_SERVICE_ROLE_KEY,
+      { realtime: { transport: ws as any } }
     );
 
     const attendeeEmail: string | undefined = payload.attendees?.[0]?.email;
