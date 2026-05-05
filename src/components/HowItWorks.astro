@@ -1,0 +1,84 @@
+---
+const steps = [
+  { n: '01', t: 'Apply.', d: '60-second form below.' },
+  { n: '02', t: 'Assessment call.', d: '45 minutes on Zoom. We dig into where your time actually goes.' },
+  { n: '03', t: 'I build your plan.', d: 'Custom AI implementation plan delivered in 2–3 days.' },
+  { n: '04', t: 'Plan review call.', d: '30 minutes together. You walk away with a 4-day implementation plan to save at least 5+ hours/week.' },
+];
+---
+<section class="how">
+  <div class="how-container">
+    <h2 class="how-h2">Here's how it works.</h2>
+
+    <div class="steps">
+      {steps.map((s, i) => (
+        <div class={`step ${i === steps.length - 1 ? 'last' : ''}`}>
+          <div class="step-num">{s.n}</div>
+          <div>
+            <div class="step-title">{s.t}</div>
+            <div class="step-desc">{s.d}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how {
+    padding: clamp(100px, 14vh, 180px) 48px;
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid #F0F0F0;
+  }
+  .how-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .how-h2 {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 5.4vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 0 0 clamp(60px, 9vh, 120px);
+    max-width: 14ch;
+  }
+  .steps {
+    display: flex;
+    flex-direction: column;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: baseline;
+    padding: clamp(28px, 4vh, 48px) 0;
+    border-top: 1px solid #ECECEC;
+  }
+  .step.last { border-bottom: 1px solid #ECECEC; }
+  .step-num {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(56px, 7vw, 110px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .step-title {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3.2vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+  .step-desc {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.5;
+    color: #555;
+    max-width: 52ch;
+  }
+</style>

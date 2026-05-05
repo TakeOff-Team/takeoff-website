@@ -1,0 +1,145 @@
+---
+import Wordmark from './Wordmark.astro';
+---
+<section class="hero">
+  <div class="wordmark-row">
+    <Wordmark />
+  </div>
+
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      Free 45-min AI assessment
+    </div>
+
+    <h1 class="hero-h1">
+      Get back 5+ hours every week,{' '}
+      <span class="highlight"><span class="highlight-bg"></span><span class="highlight-fg">for free</span></span>.
+    </h1>
+
+    <p class="hero-sub">
+      And if I can't help you save 5 hours/week with a free 45-minute AI assessment,
+      I'll pay you $50 for wasting your time.
+    </p>
+
+    <a href="#book" class="cta size-big" data-scroll-to="book">
+      Book a free assessment
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <span>↓</span>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-scroll-to]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = el.getAttribute('data-scroll-to');
+      const target = document.getElementById(id);
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 40, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    padding: 32px 48px 56px;
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    color: var(--ink);
+    position: relative;
+    text-align: center;
+  }
+  .wordmark-row {
+    display: flex;
+    justify-content: center;
+  }
+  .hero-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: clamp(40px, 8vh, 100px);
+    padding-bottom: clamp(40px, 8vh, 100px);
+  }
+  .eyebrow {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: clamp(28px, 5vh, 48px);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px #A6F23F33;
+  }
+  .hero-h1 {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(48px, 8.6vw, 136px);
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 14ch;
+  }
+  .highlight {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .highlight-bg {
+    position: absolute;
+    top: 0.08em;
+    bottom: 0.12em;
+    left: -0.06em;
+    right: -0.06em;
+    background: var(--accent);
+    transform: rotate(-0.6deg);
+    z-index: 0;
+    border-radius: 2px;
+  }
+  .highlight-fg {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-sub {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.5;
+    color: #3a3a3a;
+    max-width: 52ch;
+    margin-top: clamp(28px, 4vh, 44px);
+    margin-bottom: clamp(36px, 5vh, 56px);
+    text-wrap: pretty;
+  }
+  .scroll-cue {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #bbb;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+</style>

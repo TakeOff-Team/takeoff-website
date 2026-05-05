@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+const {
+  title = "Takeoff — Get back 5+ hours every week, for free.",
+  description = "Free 45-minute AI assessment. Custom 4-day implementation plan to save 5+ hours/week — or I'll send you $50."
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://takeoff.llc" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

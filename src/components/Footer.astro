@@ -1,0 +1,84 @@
+---
+import Wordmark from './Wordmark.astro';
+---
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <Wordmark />
+      <div class="tagline">Helping business owners get their time back with AI.</div>
+    </div>
+
+    <div class="contact-block">
+      <a href="mailto:zach@takeoff.llc" class="email-link">zach@takeoff.llc</a>
+      <div class="legal-row">
+        <a href="#">Privacy</a>
+        <span>·</span>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 Takeoff LLC</div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 48px;
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid #ECECEC;
+  }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: start;
+  }
+  .tagline {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-top: 14px;
+    max-width: 36ch;
+  }
+  .contact-block {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: #666;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .email-link {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .legal-row {
+    display: flex;
+    gap: 16px;
+  }
+  .legal-row a {
+    color: #666;
+    text-decoration: none;
+  }
+  .copyright {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: #999;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  @media (max-width: 760px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .copyright {
+      text-align: left;
+    }
+  }
+</style>

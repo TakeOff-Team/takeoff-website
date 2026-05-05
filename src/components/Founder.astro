@@ -1,0 +1,131 @@
+---
+const socials = [
+  { label: 'Instagram', href: 'https://www.instagram.com/zachdoesai_/', icon: 'instagram' },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@zachdoesai', icon: 'tiktok' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@zachgeleott', icon: 'youtube' },
+  { label: 'Skool', href: 'https://www.skool.com/zero-to-automated/about', icon: 'skool' },
+];
+---
+<section class="founder">
+  <div class="founder-inner">
+    <div class="photo-wrap">
+      <img src="/zach.jpeg" alt="Zach" />
+    </div>
+
+    <h2 class="founder-h2">Hey, I'm Zach.</h2>
+
+    <p class="founder-bio">
+      I help business owners get their time back with AI. No fluff. Just systems that work.
+    </p>
+
+    <a href="https://zachdoesai.com" target="_blank" rel="noreferrer" class="founder-link">
+      Check out my stuff →
+    </a>
+
+    <div class="follower-count">5,500+ followers across platforms</div>
+
+    <div class="social-row">
+      {socials.map((s) => (
+        <a href={s.href} target="_blank" rel="noreferrer" class="social-pill">
+          {s.icon === 'instagram' && (
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none"/>
+            </svg>
+          )}
+          {s.icon === 'tiktok' && (
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M16.5 3c.3 1.6 1.2 2.9 2.6 3.7.8.5 1.7.7 2.6.7v3.2c-1.7 0-3.3-.5-4.7-1.4v6.6c0 3.5-2.8 6.3-6.3 6.3S4.4 19.3 4.4 15.8s2.8-6.3 6.3-6.3c.4 0 .7 0 1.1.1v3.3c-.3-.1-.7-.2-1.1-.2-1.7 0-3.1 1.4-3.1 3.1s1.4 3.1 3.1 3.1 3.1-1.4 3.1-3.1V3h2.7z"/>
+            </svg>
+          )}
+          {s.icon === 'youtube' && (
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M21.6 7.2c-.2-.9-.9-1.6-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4c-.9.2-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8c.2.9.9 1.6 1.8 1.8 1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15.5v-7l5.2 3.5-5.2 3.5z"/>
+            </svg>
+          )}
+          {s.icon === 'skool' && (
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7l9-4 9 4-9 4-9-4z"/>
+              <path d="M7 9.2v4.3c0 .6.3 1.2.9 1.5 1.3.7 2.9 1.2 4.1 1.2s2.8-.5 4.1-1.2c.6-.3.9-.9.9-1.5V9.2"/>
+              <path d="M21 7v6"/>
+            </svg>
+          )}
+          {s.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .founder {
+    padding: clamp(100px, 14vh, 180px) 48px;
+    background: var(--paper);
+    color: var(--ink);
+    border-top: 1px solid #F0F0F0;
+    text-align: center;
+  }
+  .founder-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo-wrap {
+    width: clamp(220px, 24vw, 300px);
+    aspect-ratio: 1 / 1;
+    margin-bottom: clamp(36px, 5vh, 56px);
+    border-radius: 999px;
+    overflow: hidden;
+    background: #F4F4F4;
+  }
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .founder-h2 {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .founder-bio {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.55;
+    color: #444;
+    margin-top: 24px;
+    margin-bottom: 28px;
+    max-width: 40ch;
+    text-wrap: pretty;
+  }
+  .founder-link {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 2px;
+    margin-bottom: 18px;
+  }
+  .follower-count {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 36px;
+  }
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+</style>

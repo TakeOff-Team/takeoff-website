@@ -1,0 +1,123 @@
+---
+const fields = [
+  { k: 'name', label: 'Name', placeholder: 'Zach Smith', type: 'text', required: true },
+  { k: 'email', label: 'Email', placeholder: 'you@company.com', type: 'email', required: true },
+  { k: 'phone', label: 'Phone (optional)', placeholder: '(555) 555-5555', type: 'tel', required: false },
+  { k: 'business', label: 'Business', placeholder: 'Acme Co', type: 'text', required: true },
+  { k: 'website', label: 'Website', placeholder: 'acme.com', type: 'text', required: true },
+  { k: 'time', label: "What's eating your time?", placeholder: 'Manual proposals, inbox triage, lead follow-ups…', textarea: true, required: true },
+];
+---
+<section id="book" class="form-section">
+  <div class="form-container">
+    <h2 class="form-h2">Book your free assessment.</h2>
+    <p class="form-sub">Only taking 5 businesses this month.</p>
+
+    <form id="lead-form" class="lead-form">
+      {fields.map((f) => (
+        <label class="field">
+          <span class="field-label">{f.label}</span>
+          {f.textarea ? (
+            <textarea name={f.k} placeholder={f.placeholder} rows="3" class="input" required={f.required}></textarea>
+          ) : (
+            <input name={f.k} type={f.type} placeholder={f.placeholder} class="input" required={f.required} />
+          )}
+        </label>
+      ))}
+
+      <div class="submit-row">
+        <button type="submit" class="cta size-big" id="submit-btn">
+          <span id="submit-label">Submit & book my call</span>
+          <span class="arrow">→</span>
+        </button>
+        <div class="reassurance">Free · 60 seconds · No card required</div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const CAL_URL = 'https://cal.com/zachgeleott/ai-assessment';
+  const form = document.getElementById('lead-form') as HTMLFormElement;
+  const submitLabel = document.getElementById('submit-label');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    // Fire-and-forget POST with keepalive so the request completes
+    // even after the page navigates to Cal.com.
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: true,
+    }).catch((err) => console.error('Lead POST error:', err));
+
+    if (submitLabel) submitLabel.textContent = 'Redirecting to Cal.com…';
+    setTimeout(() => {
+      window.location.href = CAL_URL;
+    }, 200);
+  });
+</script>
+
+<style>
+  .form-section {
+    padding: clamp(100px, 14vh, 180px) 48px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .form-container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .form-h2 {
+    font-family: "Geist", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 5.4vw, 80px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .form-sub {
+    font-family: "Geist", system-ui, sans-serif;
+    font-size: clamp(17px, 1.4vw, 20px);
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: clamp(48px, 7vh, 72px);
+  }
+  .lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .field-label {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .submit-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .reassurance {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+  }
+</style>
