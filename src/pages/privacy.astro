@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = "Privacy Policy — Takeoff LLC";
+const description = "How Takeoff LLC collects, uses, and protects information, including data accessed through Google APIs.";
+---
+<Layout title={title} description={description}>
+  <main class="privacy">
+    <div class="wrap">
+      <a href="/" class="back">&larr; Takeoff</a>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: July 30, 2026</p>
+
+      <p>Takeoff LLC ("Takeoff," "we," "us," or "our") provides AI consulting and digital advertising services, including managing Google Ads accounts on behalf of our clients. This policy explains what information we collect, how we use it, and how we protect it.</p>
+
+      <h2>Information We Collect</h2>
+      <p>We collect information in a few ways:</p>
+      <ul>
+        <li><strong>Information you give us directly</strong> — for example, your name, email, business details, and account access when you engage us for services.</li>
+        <li><strong>Information from connected Google accounts</strong> — when a client authorizes Takeoff to manage their Google Ads account, we access account and campaign data through the Google Ads API on their behalf. This includes campaign structure, keywords, bidding data, conversion tracking data, and performance metrics for the specific accounts we've been authorized to manage.</li>
+        <li><strong>Basic website usage data</strong> — standard analytics about how visitors use takeoff.llc.</li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <p>We use the information above only to:</p>
+      <ul>
+        <li>Provide the services a client has engaged us for, including building, managing, and reporting on Google Ads campaigns.</li>
+        <li>Communicate with clients about their accounts and services.</li>
+        <li>Improve our own tools and internal processes for delivering these services.</li>
+      </ul>
+
+      <h2>Google API Services User Data Policy</h2>
+      <p>Takeoff LLC's use and transfer of information received from Google APIs to any other app adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. Data accessed through the Google Ads API is used solely to provide the advertising management services a client has directly authorized, and is not used for any other purpose.</p>
+
+      <h2>Data Sharing</h2>
+      <p>We do not sell client data or data accessed through Google APIs. We do not share it with unrelated third parties. Information is only used internally by Takeoff LLC to deliver the services a client has engaged us for.</p>
+
+      <h2>Data Retention</h2>
+      <p>We retain account and campaign data only for as long as needed to provide services to a client, or as required to meet legal or accounting obligations. Clients can request that we stop accessing their accounts or delete retained data at any time by contacting us.</p>
+
+      <h2>Data Security</h2>
+      <p>We take reasonable measures to protect information from unauthorized access, including restricting API and account access to authorized Takeoff LLC personnel only.</p>
+
+      <h2>Your Rights</h2>
+      <p>You can revoke Takeoff LLC's access to your Google Ads account at any time through your own Google Ads account settings. You can also contact us directly with any questions about your data or to request its deletion.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Our services are intended for businesses and business owners. We do not knowingly collect information from children.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy or your data can be sent to <a href="mailto:zach@takeoff.llc">zach@takeoff.llc</a>.</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .privacy {
+    min-height: 100vh;
+    padding: 64px 24px 96px;
+  }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .back {
+    display: inline-block;
+    margin-bottom: 32px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  .back:hover { opacity: 1; }
+  h1 {
+    font-size: 2.25rem;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  .updated {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin: 0 0 40px;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 32px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  p, li {
+    line-height: 1.65;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  ul {
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+  li { margin-bottom: 8px; }
+  a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+</style>
